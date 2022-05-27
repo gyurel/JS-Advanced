@@ -13,7 +13,7 @@ function check(...params){
     console.log(`{${x1}, ${y1}} to {0, 0} is ${calc1Validity ? 'valid': 'invalid'}`)
 
 
-    let calc2 = Math.sqrt((0 - x1) ** 2 + (0 - y1) ** 2)
+    let calc2 = Math.sqrt((x2 - 0) ** 2 + (y2 - 0) ** 2)
     let calc2Validity = true
     if (calc2 % 1 != 0){
         calc2Validity = false
