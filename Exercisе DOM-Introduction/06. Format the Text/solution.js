@@ -1,15 +1,14 @@
 function solve() {
-  let inputTextArr = document.getElementById('input').value.split('.');
-  let outputElement = document.getElementById('output');
+    let input = document.getElementById('input').value;
+    let outputElement = document.getElementById('output');
 
-  while (length.inputTextArr > 0){
-    let firstSentence = inputTextArr.shift() + '.';
-    let secondSentence = (inputTextArr.shift() == undefined) ? '': inputTextArr.shift() + '.';
-    let thirdSentence = (inputTextArr.shift() == undefined) ? '': inputTextArr.shift() + '.';
+    let inputTextArr = input.split('.').filter(sentence => sentence.length != 0);
 
-    let currentParagraphText = firstSentence + secondSentence + thirdSentence;
-    let p = document.createElement('p')
-    p.textContent = currentParagraphText
-    outputElement.appendChild(p)
+    while (inputTextArr.length > 0){
+        let currentParagraphText = inputTextArr.splice(0, 3).join('. ') + '.';
+
+        let p = document.createElement('p');
+        p.textContent = currentParagraphText;
+        outputElement.appendChild(p);
   }
 }
