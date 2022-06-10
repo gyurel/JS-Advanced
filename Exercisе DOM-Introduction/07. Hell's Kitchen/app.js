@@ -11,9 +11,11 @@ function solve() {
       for (let restaurant of input){
          let restaurantNameAndWorkers = restaurant.split(' - ');
          let restaurantName = restaurantNameAndWorkers[0];
-
-         restaurantsObj[restaurantName] = {};
-
+         
+         if (!restaurantsObj.hasOwnProperty(restaurantName)){
+             restaurantsObj[restaurantName] = {};
+         }
+        
          restaurantNameAndWorkers[1].split(', ').forEach(element => {
             let worker = element.split(' ');
             restaurantsObj[restaurantName][worker[0]] = Number(worker[1]);
@@ -63,7 +65,8 @@ function solve() {
       bestRestaurant.textContent = restaurantText;
 
       let workersText = ''
-      Object.entries(currentBestRestaurant).forEach(x => {
+      currentBestRestaurant = Object.entries(currentBestRestaurant).sort((a, b) => b[1] - a[1]);
+      currentBestRestaurant.forEach(x => {
          workersText += `Name: ${x[0]} With Salary: ${x[1]}` + ' ';
       });
       workers.textContent = workersText;
