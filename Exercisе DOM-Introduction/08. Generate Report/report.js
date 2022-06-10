@@ -1,14 +1,8 @@
 function generateReport() {
     let tableHead = Array.from(document.querySelectorAll('thead tr th')) 
-    // tableHead.forEach(x => {
-    //     if(x.checked){
-    //         return x
-    //     }
-    // })
+
     let tableRows = document.querySelectorAll('tbody tr');
     let outputArea = document.getElementById('output');
-    // console.log(tableRows)
-    // console.log(tableHead)
 
     let resultArr = []
 
