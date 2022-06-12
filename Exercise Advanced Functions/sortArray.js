@@ -8,6 +8,7 @@ function arraySort(arr, direction){
 
     function desc(param){
         param.sort((a, b) => b - a);
+    }
     return arr
 }
 
