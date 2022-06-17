@@ -24,10 +24,18 @@ function validator(request) {
     return request
 }
 
-validator({
+console.log(validator({
     method: 'GET',
     uri: 'svn.public.catalog',
     version: 'HTTP/1.1',
     message: ''
 }
-)
+))
+
+// console.log(validator({
+//     method: 'OPTIONS',
+//     uri: 'git.master',
+//     version: 'HTTP/1.1',
+//     message: '-recursive'
+//   }
+//   ))
