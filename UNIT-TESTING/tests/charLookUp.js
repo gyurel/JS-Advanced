@@ -25,11 +25,15 @@ describe('lookupChar Tests', () => {
     })
 
     it('return "incorrect index" when index bigger than length minus one', () => {
-        currentString = 'string'
+        let currentString = 'string'
         expect(lookupChar(currentString, currentString.length)).to.equal('Incorrect index');
     })
 
     it('return the char at the index if everything is correct', () => {
-        expect(lookupChar('string', 0)).to.equal('s');
+        let currentString = 'string';
+        for (let index = 0; index < currentString.length; index++) {
+            const currentIndex = index;
+            expect(lookupChar(currentString, index)).to.equal(currentString[index]);
+        }
     })
 })
