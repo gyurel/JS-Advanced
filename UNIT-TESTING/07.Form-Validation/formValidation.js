@@ -1,18 +1,15 @@
 function validate() {
-    let usernameRegex = /^[a-zA-Z0-9]{3,20}$/;
-    let emailRegex = /^[^@.]+@[^@]*\.[^@]+$/;
-    let passwordRegex = /^[\w]{5,15}$/;
-    let companyNumberRegex = /^[0-9]{4}$/;
 
-    document.getElementById('company').addEventListener('change', () => {
-        if (document.getElementById('company').checked == true){
+    document.getElementById('submit').addEventListener('click', clickSubmit);
+
+    let checkBox = document.getElementById('company');
+    checkBox.addEventListener('change', () => {
+        if (checkBox.checked == true){
             document.getElementById('companyInfo').style.display = 'block';
         } else {
             document.getElementById('companyInfo').style.display = 'none';
         }
     })
-
-    document.getElementById('submit').addEventListener('click', clickSubmit);
 
     function clickSubmit (e){
         e.preventDefault();
@@ -23,33 +20,35 @@ function validate() {
         let passwordField = document.getElementById('password');
         let confirmPasswordField = document.getElementById('confirm-password');
         let companyNumberField = document.getElementById('companyNumber');
-        let checkBox = document.getElementById('company');
 
+        let usernameRegex = /^[a-zA-Z0-9]{3,20}$/;
         if (!usernameRegex.test(userNameField.value)){
             userNameField.style.borderColor = 'red';
             isValid = false;
         }
 
+        let emailRegex = /^[^@.]+@[^@]*\.[^@]+$/;
         if (!emailRegex.test(emailField.value)){
             emailField.style.borderColor = 'red';
             isValid = false;
         }
 
+        let passwordRegex = /^[\w]{5,15}$/;
         if (!passwordRegex.test(passwordField.value)){
             passwordField.style.borderColor = 'red';
             isValid = false;
         }
 
         if (!passwordRegex.test(confirmPasswordField.value) || passwordField.value != confirmPasswordField.value){
+            passwordField.style.borderColor = 'red';
             confirmPasswordField.style.borderColor = 'red';
             isValid = false;
         }
 
-        if (document.getElementById('companyInfo').style.display == 'block'){
-            if (!companyNumberRegex.text(companyNumberField.value)){
-                companyNumberField.style.borderColor = 'red';
-                isValid = false;
-            }
+        let companyNumberRegex = /^[0-9]{4}$/;
+        if (checkBox.checked && !companyNumberRegex.test(companyNumberField.value)){
+            companyNumberField.style.borderColor = 'red';
+            isValid = false;
         }
 
         if (isValid == true){
