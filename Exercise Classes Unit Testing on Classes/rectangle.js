@@ -1,4 +1,4 @@
-class Ractangle {
+class Rectangle {
     // width;
     // height;
     // color;
